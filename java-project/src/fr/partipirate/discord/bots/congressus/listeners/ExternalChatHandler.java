@@ -23,14 +23,14 @@ public class ExternalChatHandler extends ListenerAdapter {
 
 	@Override
 	public void onMessageUpdate(MessageUpdateEvent event) {
-		if (event.isFromType(ChannelType.TEXT)) {
+		if (event.isFromType(ChannelType.TEXT) || event.isFromType(ChannelType.VOICE)) {
 			handleMessage(event.getAuthor(), event.getChannel(), event.getMessage());
 		}
 	}
 
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
-		if (event.isFromType(ChannelType.TEXT)) {
+		if (event.isFromType(ChannelType.TEXT) || event.isFromType(ChannelType.VOICE)) {
 			handleMessage(event.getAuthor(), event.getChannel(), event.getMessage());
 		}
 	}
